@@ -4,9 +4,11 @@ metadata:
   name: minio-service
 spec:
   type: LoadBalancer
-  ports:
-    - port: 9000
-      targetPort: 9000
-      protocol: TCP
   selector:
     app: minio
+    type: NodePort
+    ports:
+      - port: 9000
+        targetPort: 9000
+        protocol: TCP
+        nodePort: 30007
