@@ -6,7 +6,6 @@ spec:
   type: LoadBalancer
   selector:
     app: minio
-    type: NodePort
     ports:
       - port: 9000
         targetPort: 9000
