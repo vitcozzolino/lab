@@ -30,6 +30,8 @@ spec:
         - /storage
         - --address
         - 0.0.0.0:9000
+        - --console-address
+        - 0.0.0.0:9001
         env:
         # Minio access key and secret key
         - name: MINIO_ACCESS_KEY
