@@ -10,8 +10,8 @@ spec:
     spec:
       containers:
         - name: docker-example
-          image: mlflow-docker-example
-          command: ["python train.py --alpha {alpha} --l1-ratio {l1_ratio}"]
+          image: vitcozzolino/mlflow-docker-example
+          command: ["python train.py --alpha 0.5"]
           resources:
             limits:
               memory: 512Mi

@@ -6,8 +6,8 @@ on:
       - main # Or your main development branch
 
 env:
-  DOCKERFILE_PATH: Dockerfile # Adjust if your Dockerfile is in a different location
-  IMAGE_NAME: your-dockerhub-username/your-image-name # Replace with your Docker Hub username and image name
+  DOCKERFILE_PATH: mlflow_docker_example/Dockerfile # Adjust if your Dockerfile is in a different location
+  IMAGE_NAME: vitcozzolino/mlflow-docker-example # Replace with your Docker Hub username and image name
   DOCKER_REGISTRY: docker.io # Or your specific registry URL (e.g., ghcr.io)
   TAG: ${{ github.sha }} # Use the commit SHA as the default tag
 
