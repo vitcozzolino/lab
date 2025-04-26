@@ -28,7 +28,8 @@ spec:
         args:
         - server
         - /storage
-        - --address "0.0.0.0:9000"
+        - --address
+        - 0.0.0.0:9000s
         env:
         # Minio access key and secret key
         - name: MINIO_ACCESS_KEY
