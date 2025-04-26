@@ -38,6 +38,7 @@ jobs:
           context: mlflow_docker_example # Context path for the Docker build
           file: ${{ env.DOCKERFILE_PATH }}
           push: true
+          platforms: ${{ env.TARGET_PLATFORMS }}
           tags: ${{ env.IMAGE_NAME }}:${{ env.TAG }}, ${{ env.IMAGE_NAME }}:latest # Push with commit SHA and 'latest' tags
 
   # Optional: Deploy to Kubernetes (Example - Adapt to your deployment strategy)
