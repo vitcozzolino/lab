@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Community Kubernetes Helm Charts | helm-charts</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Community Kubernetes Helm Charts" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Community Helm Charts" />
+<meta property="og:description" content="Community Helm Charts" />
+<link rel="canonical" href="https://community-charts.github.io/helm-charts/" />
+<meta property="og:url" content="https://community-charts.github.io/helm-charts/" />
+<meta property="og:site_name" content="helm-charts" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Community Kubernetes Helm Charts" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Community Helm Charts","headline":"Community Kubernetes Helm Charts","name":"helm-charts","url":"https://community-charts.github.io/helm-charts/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/helm-charts/assets/css/style.css?v=929b0f574cc2a951bcf8952bfadd57786c05860b">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/helm-charts/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://community-charts.github.io/helm-charts/">helm-charts</a></h1>
+      
+
+      <h1 id="community-kubernetes-helm-charts">Community Kubernetes Helm Charts</h1>
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<p><a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square" alt="All Contributors" /></a>
+<!-- ALL-CONTRIBUTORS-BADGE:END --></p>
+
+<p><img src="https://img.shields.io/github/license/community-charts/helm-charts" alt="MIT License" /> <img src="https://github.com/community-charts/helm-charts/actions/workflows/release.yml/badge.svg?branch=main" alt="Release Charts" /> <a href="https://github.com/community-charts/helm-charts/releases"><img src="https://img.shields.io/github/downloads/community-charts/helm-charts/total.svg" alt="Releases downloads" /></a> <a href="https://artifacthub.io/packages/search?repo=community-charts"><img src="https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/community-charts" alt="Artifact Hub" /></a></p>
+
+<h2 id="usage">Usage</h2>
+
+<p><a href="https://helm.sh">Helm</a> must be installed to use the charts.
+Please refer to Helm’s <a href="https://helm.sh/docs/">documentation</a> to get started.</p>
+
+<p>Once Helm is set up properly, add the repo as follows:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">helm repo add community-charts https://community-charts.github.io/helm-charts
+helm repo update
+</span></code></pre></div></div>
+
+<p>You can then run <code class="language-plaintext highlighter-rouge">helm search repo community-charts</code> to see the charts.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p><a href="https://helm.sh">Helm</a> charts can be found on Github: <a href="https://github.com/community-charts/helm-charts/">https://github.com/community-charts/helm-charts/</a></p>
+
+<h2 id="contributors">Contributors</h2>
+
+<p>Community Charts are made with &lt;3 thanks to these wonderful people
+(<a href="https://allcontributors.org/docs/en/emoji-key#table">emoji key</a>):</p>
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/xadrianzetx"><img src="https://avatars.githubusercontent.com/u/37713008?v=4?s=100" width="100px;" alt="" /><br /><sub><b>Adrian Zuber</b></sub></a><br /><a href="https://github.com/community-charts/helm-charts/commits?author=xadrianzetx" title="Code">💻</a> <a href="https://github.com/community-charts/helm-charts/commits?author=xadrianzetx" title="Documentation">📖</a> <a href="https://github.com/community-charts/helm-charts/issues?q=author%3Axadrianzetx" title="Bug reports">🐛</a> <a href="#ideas-xadrianzetx" title="Ideas, Planning, &amp; Feedback">🤔</a> <a href="https://github.com/community-charts/helm-charts/commits?author=xadrianzetx" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://www.burakince.com"><img src="https://avatars.githubusercontent.com/u/858202?v=4?s=100" width="100px;" alt="" /><br /><sub><b>Burak Ince</b></sub></a><br /><a href="https://github.com/community-charts/helm-charts/commits?author=burakince" title="Code">💻</a> <a href="https://github.com/community-charts/helm-charts/commits?author=burakince" title="Documentation">📖</a> <a href="https://github.com/community-charts/helm-charts/issues?q=author%3Aburakince" title="Bug reports">🐛</a> <a href="https://github.com/community-charts/helm-charts/pulls?q=is%3Apr+reviewed-by%3Aburakince" title="Reviewed Pull Requests">👀</a> <a href="#ideas-burakince" title="Ideas, Planning, &amp; Feedback">🤔</a> <a href="https://github.com/community-charts/helm-charts/commits?author=burakince" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/ryshoooo"><img src="https://avatars.githubusercontent.com/u/12965813?v=4?s=100" width="100px;" alt="" /><br /><sub><b>Richard Nemeth</b></sub></a><br /><a href="https://github.com/community-charts/helm-charts/commits?author=ryshoooo" title="Code">💻</a> <a href="https://github.com/community-charts/helm-charts/commits?author=ryshoooo" title="Documentation">📖</a> <a href="https://github.com/community-charts/helm-charts/issues?q=author%3Aryshoooo" title="Bug reports">🐛</a> <a href="#ideas-ryshoooo" title="Ideas, Planning, &amp; Feedback">🤔</a> <a href="https://github.com/community-charts/helm-charts/commits?author=ryshoooo" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/faceless7171"><img src="https://avatars.githubusercontent.com/u/43067693?v=4?s=100" width="100px;" alt="" /><br /><sub><b>faceless7171</b></sub></a><br /><a href="https://github.com/community-charts/helm-charts/issues?q=author%3Afaceless7171" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/subramaniam20jan"><img src="https://avatars.githubusercontent.com/u/6160977?v=4?s=100" width="100px;" alt="" /><br /><sub><b>subramaniam20jan</b></sub></a><br /><a href="https://github.com/community-charts/helm-charts/commits?author=subramaniam20jan" title="Code">💻</a> <a href="https://github.com/community-charts/helm-charts/commits?author=subramaniam20jan" title="Documentation">📖</a> <a href="https://github.com/community-charts/helm-charts/issues?q=author%3Asubramaniam20jan" title="Bug reports">🐛</a> <a href="#ideas-subramaniam20jan" title="Ideas, Planning, &amp; Feedback">🤔</a> <a href="https://github.com/community-charts/helm-charts/commits?author=subramaniam20jan" title="Tests">⚠️</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+<h2 id="repo-beats">Repo Beats</h2>
+
+<p><img src="https://repobeats.axiom.co/api/embed/6b096d887f659cf42c4cb85d2986fce29b9d2f85.svg" alt="Alt" title="Repobeats analytics image" /></p>
+
+<h2 id="license">License</h2>
+
+<!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
+<p><a href="https://github.com/community-charts/helm-charts/blob/main/LICENSE">MIT License</a>.</p>
+
+
+
+      
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/community-charts/helm-charts/edit/gh-pages/README.md">Improve this page</a>.
+      </div>
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
