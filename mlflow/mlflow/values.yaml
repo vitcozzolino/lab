@@ -81,23 +81,23 @@ backendStore:
   databaseMigration: false
 
   # -- Add an additional init container, which checks for database availability
-  databaseConnectionCheck: false
+  databaseConnectionCheck: true
 
   postgres:
     # -- Specifies if you want to use postgres backend storage
-    enabled: false
+    enabled: true
     # -- Postgres host address. e.g. your RDS or Azure Postgres Service endpoint
     host: "postgres-postgresql.db.svc.cluster.local" # required
     # -- Postgres service port
     port: 5432 # required
     # -- mlflow database name created before in the postgres instance
-    database: "" # required
+    database: "mlflow" # required
     # -- postgres database user name which can access to mlflow database
-    user: "" # required
+    user: "postgres" # required
     # -- postgres database user password which can access to mlflow database
-    password: "" # required
+    password: "123456" # required
     # -- postgres database connection driver. e.g.: "psycopg2"
-    driver: ""
+    driver: "psycopg2"
 
   mysql:
     # -- Specifies if you want to use mysql backend storage
@@ -127,7 +127,7 @@ backendStore:
 # -- Bitnami PostgreSQL configuration. For more information checkout: https://github.com/bitnami/charts/tree/main/bitnami/postgresql
 postgresql:
   # -- Enable postgresql
-  enabled: true
+  enabled: false
   architecture: standalone
 
   primary:
