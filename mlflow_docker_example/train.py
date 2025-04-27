@@ -51,6 +51,7 @@ if __name__ == "__main__":
     l1_ratio = float(args.l1_ratio)
 
     mlflow.set_experiment("/mlflow_docker_example/wine-quality")
+    print(mlflow.get_artifact_uri())
     # with mlflow.start_run(run_name="elasticnet"):
     lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
     lr.fit(train_x, train_y)
