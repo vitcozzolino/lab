@@ -169,7 +169,7 @@ mysql:
 # Mlflow blob storage settings
 artifactRoot:
   # -- Specifies if you want to enable proxied artifact storage access
-  proxiedArtifactStorage: false
+  proxiedArtifactStorage: true
 
   # -- Specifies if you want to use Azure Blob Storage Mlflow Artifact Root
   azureBlob:
@@ -336,7 +336,6 @@ extraArgs: {}
 # -- A list of flags to pass to `mlflow server` command. Items must be camelcase. Helm will turn them to kebabcase style.
 extraFlags:
   - serve-artifacts
-  - default-artifact-root=mlflow-artifacts:/
 # If specified, enables serving of artifact uploads, downloads, and list requests by routing these requests
 # to the storage location that is specified by ‘–artifact-destination’ directly through a proxy.
   # serveArtifacts
