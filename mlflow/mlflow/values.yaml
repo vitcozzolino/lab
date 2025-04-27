@@ -85,7 +85,7 @@ backendStore:
 
   postgres:
     # -- Specifies if you want to use postgres backend storage
-    enabled: true
+    enabled: false
     # -- Postgres host address. e.g. your RDS or Azure Postgres Service endpoint
     host: "postgres-postgresql.db.svc.cluster.local" # required
     # -- Postgres service port
@@ -127,7 +127,7 @@ backendStore:
 # -- Bitnami PostgreSQL configuration. For more information checkout: https://github.com/bitnami/charts/tree/main/bitnami/postgresql
 postgresql:
   # -- Enable postgresql
-  enabled: false
+  enabled: true
   architecture: standalone
 
   primary:
@@ -140,8 +140,8 @@ postgresql:
       existingClaim: ""
 
   auth:
-    username: ""
-    password: ""
+    username: "mlflow"
+    password: "123456"
     # -- The name of the PostgreSQL database.
     database: "mlflow"
 
@@ -189,15 +189,15 @@ artifactRoot:
   # -- Specifies if you want to use AWS S3 Mlflow Artifact Root
   s3:
     # -- Specifies if you want to use AWS S3 Mlflow Artifact Root
-    enabled: false
+    enabled: true
     # -- S3 bucket name
-    bucket: "" # required
+    bucket: "mlflow" # required
     # -- S3 bucket folder. If you want to use root level, please don't set anything.
     path: "" # optional
     # -- AWS IAM user AWS_ACCESS_KEY_ID which has attached policy for access to the S3 bucket
-    awsAccessKeyId: "" # (awsAccessKeyId and awsSecretAccessKey) or roleArn serviceaccount annotation required
+    awsAccessKeyId: "MitC0Kmdipsudy5wyRke" # (awsAccessKeyId and awsSecretAccessKey) or roleArn serviceaccount annotation required
     # -- AWS IAM user AWS_SECRET_ACCESS_KEY which has attached policy for access to the S3 bucket
-    awsSecretAccessKey: "" # (awsAccessKeyId and awsSecretAccessKey) or roleArn serviceaccount annotation required
+    awsSecretAccessKey: "AvQlhK4HJMs9C90FmfpYq5QQntaBGKJGntIQ7UHr" # (awsAccessKeyId and awsSecretAccessKey) or roleArn serviceaccount annotation required
 
   # -- Specifies if you want to use Google Cloud Storage Mlflow Artifact Root
   gcs:
