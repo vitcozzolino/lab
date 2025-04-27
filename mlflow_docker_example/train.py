@@ -24,7 +24,6 @@ def eval_metrics(actual, pred):
 
 remote_server_uri = os.getenv("MLFLOW_TRACKING_URI", "http://127.0.0.1:8080")  # Default to http://127.0.0.1:8080 if not set
 mlflow.set_tracking_uri(remote_server_uri)
-mlflow.set_experiment("/mlflow_docker_example/wine-quality")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
@@ -51,23 +50,24 @@ if __name__ == "__main__":
     alpha = float(args.alpha)
     l1_ratio = float(args.l1_ratio)
 
-    with mlflow.start_run():
-        lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
-        lr.fit(train_x, train_y)
+    mlflow.set_experiment("/mlflow_docker_example/wine-quality")
+    # with mlflow.start_run(run_name="elasticnet"):
+    lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
+    lr.fit(train_x, train_y)
 
-        predicted_qualities = lr.predict(test_x)
+    predicted_qualities = lr.predict(test_x)
 
-        (rmse, mae, r2) = eval_metrics(test_y, predicted_qualities)
+    (rmse, mae, r2) = eval_metrics(test_y, predicted_qualities)
 
-        print(f"Elasticnet model (alpha={alpha:f}, l1_ratio={l1_ratio:f}):")
-        print(f"  RMSE: {rmse}")
-        print(f"  MAE: {mae}")
-        print(f"  R2: {r2}")
+    print(f"Elasticnet model (alpha={alpha:f}, l1_ratio={l1_ratio:f}):")
+    print(f"  RMSE: {rmse}")
+    print(f"  MAE: {mae}")
+    print(f"  R2: {r2}")
 
-        mlflow.log_param("alpha", alpha)
-        mlflow.log_param("l1_ratio", l1_ratio)
-        mlflow.log_metric("rmse", rmse)
-        mlflow.log_metric("r2", r2)
-        mlflow.log_metric("mae", mae)
+    mlflow.log_param("alpha", alpha)
+    mlflow.log_param("l1_ratio", l1_ratio)
+    mlflow.log_metric("rmse", rmse)
+    mlflow.log_metric("r2", r2)
+    mlflow.log_metric("mae", mae)
 
-        mlflow.sklearn.log_model(lr, "model")
+    mlflow.sklearn.log_model(lr, "model")
