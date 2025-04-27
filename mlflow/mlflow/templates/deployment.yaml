@@ -9,8 +9,8 @@
 {{- if .Values.artifactRoot.azureBlob.enabled }}
   {{- $artifactCommand = printf "--%s=wasbs://%s@%s.blob.core.windows.net/%s" $artifactCommandPrefix .Values.artifactRoot.azureBlob.container .Values.artifactRoot.azureBlob.storageAccount .Values.artifactRoot.azureBlob.path }}
 {{- else if .Values.artifactRoot.s3.enabled }}
-  {{- $artifactCommand = printf "--%s=mlflow-artifacts:/" $artifactCommandPrefix}}
-  # {{- $artifactCommand = printf "--%s=s3://%s/%s" $artifactCommandPrefix .Values.artifactRoot.s3.bucket .Values.artifactRoot.s3.path }}
+  # {{- $artifactCommand = printf "--%s=mlflow-artifacts:/" $artifactCommandPrefix}}
+  {{- $artifactCommand = printf "--%s=s3://%s/%s" $artifactCommandPrefix .Values.artifactRoot.s3.bucket .Values.artifactRoot.s3.path }}
 {{- else if .Values.artifactRoot.gcs.enabled }}
   {{- $artifactCommand = printf "--%s=gs://%s/%s" $artifactCommandPrefix .Values.artifactRoot.gcs.bucket .Values.artifactRoot.gcs.path }}
 {{- end }}
@@ -227,6 +227,7 @@ spec:
             - {{ $artifactCommand }}
           {{- if .Values.artifactRoot.proxiedArtifactStorage }}
             - --serve-artifacts
+            - --default-artifact-root=mlflow-artifacts:/
           {{- end }}
           {{- if .Values.serviceMonitor.enabled }}
             - --expose-prometheus=/mlflow/metrics
