@@ -85,7 +85,7 @@ backendStore:
 
   postgres:
     # -- Specifies if you want to use postgres backend storage
-    enabled: true
+    enabled: false
     # -- Postgres host address. e.g. your RDS or Azure Postgres Service endpoint
     host: "postgres-postgresql.db.svc.cluster.local" # required
     # -- Postgres service port
@@ -127,7 +127,7 @@ backendStore:
 # -- Bitnami PostgreSQL configuration. For more information checkout: https://github.com/bitnami/charts/tree/main/bitnami/postgresql
 postgresql:
   # -- Enable postgresql
-  enabled: false
+  enabled: true
   architecture: standalone
 
   primary:
