@@ -22,6 +22,9 @@ def eval_metrics(actual, pred):
     r2 = r2_score(actual, pred)
     return rmse, mae, r2
 
+remote_server_uri = os.getenv("MLFLOW_TRACKING_URI", "http://127.0.0.1:8080")  # Default to http://127.0.0.1:8080 if not set
+mlflow.set_tracking_uri(remote_server_uri)
+mlflow.set_experiment("/mlflow_docker_example/wine-quality")
 
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")

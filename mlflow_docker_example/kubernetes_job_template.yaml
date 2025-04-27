@@ -11,7 +11,9 @@ spec:
       containers:
         - name: docker-example
           image: vitcozzolino/mlflow-docker-example:latest
-          # command: ["python train.py --alpha 0.5"]
+            env:
+            - name: MLFLOW_TRACKING_URI
+              value: "http://mlflow.mlflow.svc.cluster.local:5000"
           resources:
             limits:
               memory: 512Mi
