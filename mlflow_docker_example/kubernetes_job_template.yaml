@@ -3,6 +3,7 @@ kind: Job
 metadata:
   name: docker-example
   namespace: mlflow
+  generateName: mflow-wine-training-
   annotations:
     argocd.argoproj.io/hook: PostSync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
