@@ -227,7 +227,7 @@ spec:
             - {{ $artifactCommand }}
           {{- if .Values.artifactRoot.proxiedArtifactStorage }}
             - --serve-artifacts
-            - --default-artifact-root=mlflow-artifacts:/
+            # - --default-artifact-root=mlflow-artifacts:/
           {{- end }}
           {{- if .Values.serviceMonitor.enabled }}
             - --expose-prometheus=/mlflow/metrics
