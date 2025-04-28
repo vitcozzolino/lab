@@ -3,6 +3,9 @@ kind: Job
 metadata:
   name: docker-example
   namespace: mlflow
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   ttlSecondsAfterFinished: 100
   backoffLimit: 0
