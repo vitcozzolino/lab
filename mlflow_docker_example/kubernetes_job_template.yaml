@@ -4,9 +4,9 @@ metadata:
   name: docker-example
   namespace: mlflow
   generateName: mflow-wine-training-
-  annotations:
-    argocd.argoproj.io/hook: PostSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+  # annotations:
+  #   argocd.argoproj.io/hook: PostSync
+  #   argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   ttlSecondsAfterFinished: 100
   backoffLimit: 0
