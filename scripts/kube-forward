@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Function to run a port-forward command in the background
+run_port_forward() {
+  local namespace="$1"
+  local service_pod="$2"
+  local local_port="$3"
+  local remote_port="$4"
+  local log_file="port_forward_${namespace}_${local_port}.log"
+  local process_name="kubectl port-forward -n ${namespace} ${service_pod} ${local_port}:${remote_port}"
+
+  # Check if the port-forward process is already running
+  if pgrep -f "$process_name" >/dev/null; then
+    echo "Port-forward for ${namespace}/${service_pod}:${local_port}:${remote_port} is already running."
+    return 0
+  fi
+
+  echo "Starting port-forward for ${namespace}/${service_pod}:${local_port}:${remote_port} in the background..."
+  kubectl port-forward -n "$namespace" "$service_pod" "$local_port":"$remote_port" > "$log_file" 2>&1 &
+  echo "Port-forward running in the background. Logs will be written to: $log_file"
+  echo "Process ID: $!"
+  # Store the PID in a variable with a unique name
+  declare -g "PF_PID_${namespace}_${local_port}"="$!"
+}
+
+# Function to stop all port-forward processes started by this script
+stop_all_forwards() {
+  echo "Stopping all port-forward processes started by this script..."
+  # Use a more specific pkill command
+  pkill -f "kubectl port-forward"
+  #  Loop through the declared PID variables and kill them.
+  for var in $(compgen -v | grep "^PF_PID_"); do
+     pid_to_kill="${!var}" #indirect expansion
+     echo "Killing process $pid_to_kill (PID from variable $var)"
+     kill "$pid_to_kill"
+  done
+
+  echo "All port-forward processes stopped."
+}
+
+# Check for the shutdown flag
+if [ "$1" == "-s" ]; then
+  stop_all_forwards
+  exit 0
+fi
+
+# Run each port-forward command in the background with echo messages
+run_port_forward "db" "service/postgres-postgresql" 5432 5432
+run_port_forward "mlflow" "mlflow-5df9cf7855-r8d95" 5000 5000
+run_port_forward "argocd" "argocd-server" 32424 32424
+run_port_forward "db" "pgadmin-pgadmin4-5899d7ff58-72vzs" 7880 80
+run_port_forward "security" "vault-0" 8200 8200
+
+echo "All port-forward commands have been started in the background."
+echo "You can check the logs in the current directory for each port-forward process."
+echo "To stop all port forwards, run the script with the -s flag: $0 -s"

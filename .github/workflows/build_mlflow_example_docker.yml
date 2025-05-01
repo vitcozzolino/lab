@@ -40,24 +40,3 @@ jobs:
           push: true
           platforms: ${{ env.TARGET_PLATFORMS }}
           tags: ${{ env.IMAGE_NAME }}:${{ env.TAG }}, ${{ env.IMAGE_NAME }}:latest # Push with commit SHA and 'latest' tags
-
-  # Optional: Deploy to Kubernetes (Example - Adapt to your deployment strategy)
-  # deploy:
-  #   name: Deploy to Kubernetes
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
-
-  #     - name: Set up kubectl
-  #       uses: azure/setup-kubectl@v3
-  #       with:
-  #         version: 'v1.26.0' # Or your desired kubectl version
-
-  #     - name: Apply Kubernetes manifest
-  #       run: |
-  #         kubectl apply -f your-deployment.yaml -n your-namespace
-  #         kubectl rollout restart deployment/your-deployment-name -n your-namespace
-  #       env:
-  #         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }} # Ensure you have your kubeconfig as a secret
