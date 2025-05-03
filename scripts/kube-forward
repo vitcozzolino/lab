@@ -20,7 +20,7 @@ run_port_forward() {
   echo "Port-forward running in the background. Logs will be written to: $log_file"
   echo "Process ID: $!"
   # Store the PID in a variable with a unique name
-  declare -g "PF_PID_${namespace}_${local_port}"="$!"
+  #declare -g "PF_PID_${namespace}_${local_port}"="$!"
 }
 
 # Function to stop all port-forward processes started by this script
@@ -46,10 +46,11 @@ fi
 
 # Run each port-forward command in the background with echo messages
 run_port_forward "db" "service/postgres-postgresql" 5432 5432
-run_port_forward "mlflow" "mlflow-5df9cf7855-r8d95" 5000 5000
-run_port_forward "argocd" "argocd-server" 32424 32424
-run_port_forward "db" "pgadmin-pgadmin4-5899d7ff58-72vzs" 7880 80
-run_port_forward "security" "vault-0" 8200 8200
+run_port_forward "mlflow" "service/mlflow" 5000 5000
+run_port_forward "argocd" "service/argocd-server" 32424 80
+run_port_forward "db" "service/pgadmin-pgadmin4" 7880 80
+run_port_forward "security" "service/vault" 8200 8200
+run_port_forward "minio" "minio-deployment-57dbd9748f-bk477" 9001 9001
 
 echo "All port-forward commands have been started in the background."
 echo "You can check the logs in the current directory for each port-forward process."
