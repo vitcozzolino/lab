@@ -13,13 +13,13 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: argocd-server.argocd.svc.cluster.local
+                name: argocd-server
                 port:
                   number: 80
           - path: /minio/(/|$)(.*)
             pathType: Prefix
             backend:
               service:
-                name: minio-service.minio.svc.cluster.local
+                name: minio-service
                 port:
                   number: 80
