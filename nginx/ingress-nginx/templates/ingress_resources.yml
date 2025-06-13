@@ -13,13 +13,13 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: argocd-server
+                name: argocd-external
                 port:
-                  number: 80
+                  number: 443
           - path: /minio/(/|$)(.*)
             pathType: ImplementationSpecific
             backend:
               service:
-                name: minio-service
+                name: minio-external
                 port:
-                  number: 80
+                  number: 443
