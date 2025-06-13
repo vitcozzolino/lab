@@ -10,14 +10,14 @@ spec:
     - http:
         paths:
           - path: /argocd(/|$)(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: argocd-server
                 port:
                   number: 80
           - path: /minio/(/|$)(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: minio-service
