@@ -107,7 +107,7 @@ controller:
   ## Disabled by default
   hostPort:
     # -- Enable 'hostPort' or not
-    enabled: false
+    enabled: true
     ports:
       # -- 'hostPort' http port
       http: 80
@@ -492,7 +492,7 @@ controller:
     labels: {}
     # -- Type of the external controller service.
     # Ref: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
-    type: LoadBalancer
+    type: NodePort
     # -- Pre-defined cluster internal IP address of the external controller service. Take care of collisions with existing services.
     # This value is immutable. Set once, it can not be changed without deleting and re-creating the service.
     # Ref: https://kubernetes.io/docs/concepts/services-networking/service/#choosing-your-own-ip-address
@@ -550,9 +550,9 @@ controller:
     appProtocol: true
     nodePorts:
       # -- Node port allocated for the external HTTP listener. If left empty, the service controller allocates one from the configured node port range.
-      http: ""
+      http: "30080"
       # -- Node port allocated for the external HTTPS listener. If left empty, the service controller allocates one from the configured node port range.
-      https: ""
+      https: "30443"
       # -- Node port mapping for external TCP listeners. If left empty, the service controller allocates them from the configured node port range.
       # Example:
       # tcp:
